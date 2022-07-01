@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  name: deployment-example
+spec:  
+  replicas: 3  
+  selector:    
+    matchLabels:
+      app: nginx  
+  template:    
+    metadata:      
+      labels:        
+        app: nginx    
+    spec:      
+      containers:      
+      - name: nginx        
+        image: docker.io/library/nginx:1.13   
+# 镜像不能使用latest tag，或者手动添加拉取镜像规则

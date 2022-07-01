@@ -1,0 +1,11 @@
+*.tgr*
+*.tar
+/test
+.idea/
+log/
+tmp/
+.vscode/**/*
+!.vscode/extension.json
+!.vscode/setting.json
+/docker/harbor/*.tgz
+/docker/harbor/harbor/
