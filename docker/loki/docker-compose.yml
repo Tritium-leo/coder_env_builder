@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  loki:
+    image: grafana/loki:1.5.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+  
+
+  promtail:
+    image: grafana/promtail:1.5.0
+    volumes:
+      # - /usr/local/logs/:/var/log/ 
+      - /home/chi/code/python3/fastapi_demo/log:/var/log/
+      # 要监控的log路径
+    command: -config.file=/etc/promtail/docker-config.yaml
+
+
